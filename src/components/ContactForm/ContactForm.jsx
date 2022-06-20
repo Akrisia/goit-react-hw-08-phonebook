@@ -1,6 +1,6 @@
 import s from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contacts/contacts-actions'
+import { addContact } from 'redux/contacts/contacts-operations';
 
 export default function ContactForm() {
   const dispatch = useDispatch();
@@ -11,9 +11,8 @@ export default function ContactForm() {
 
     const contact = {
       name: form.elements.name.value,
-      number: form.elements.number.value,
-    }
-    console.log(contact);
+      phone: form.elements.number.value,
+    };
 
     dispatch(addContact(contact));
     form.reset();
