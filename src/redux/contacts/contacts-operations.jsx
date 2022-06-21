@@ -14,6 +14,11 @@ export const getContacts = createAsyncThunk(
 export const addContact = createAsyncThunk(
     'contacts/addContact',
     async ({ name, phone }) => {
+        const duplicateData = await axios.get(`${BASE_URL}/contacts?search=${name}`);
+        if (duplicateData.data.length > 0) {
+            return alert(`${name} is already in contacts`);
+        }
+
         const { data } = await axios.post(`${BASE_URL}/contacts`, { name, phone });
         return data;
     }
@@ -22,7 +27,8 @@ export const addContact = createAsyncThunk(
 export const deleteContact = createAsyncThunk(
     'contacts/deleteContact',
     async (id) => {
-        await axios.delete(`${BASE_URL}/contacts/${id}`);
+        const { data } = await axios.delete(`${BASE_URL}/contacts/${id}`);
+        return data;
     }
 );
 

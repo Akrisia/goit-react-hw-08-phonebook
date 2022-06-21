@@ -6,12 +6,12 @@ import { updateFilter } from "./contacts-actions";
 const items = createReducer([], {
   [getContacts.fulfilled]: (_, {payload}) => payload,
   [addContact.fulfilled]: (state, { payload }) => {
-    if (state.map(item => item.name.toLowerCase()).includes(payload.name.toLowerCase())) {
-      return alert(`${payload.name} is already in contacts`);
+    if (!payload) {
+      return state;
     };
       return [...state, payload];
   },
-  [deleteContact.fulfilled]: (state, { payload }) => state.filter(({id}) => id !== payload),
+  [deleteContact.fulfilled]: (state, { payload }) => state.filter(({id}) => id !== payload.id),
 });
 
 const isLoading = createReducer(false, {
