@@ -1,6 +1,6 @@
 import s from './LoginView.module.css';
 import { useDispatch } from "react-redux";
-import { loginUser } from 'redux/auth/auth-operations';
+import { logIn } from 'redux/auth/auth-operations';
 
 export default function LoginView() {
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function LoginView() {
             password: form.elements.password.value,
         };
 
-        dispatch(loginUser(user));
+        dispatch(logIn(user));
         form.reset();
     };
 

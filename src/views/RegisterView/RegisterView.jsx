@@ -1,6 +1,6 @@
 import s from './RegisterView.module.css';
 import { useDispatch } from "react-redux";
-import { addUser } from 'redux/auth/auth-operations';
+import { register } from 'redux/auth/auth-operations';
 
 export default function RegisterView() {
     const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export default function RegisterView() {
             password: form.elements.password.value,
         };
 
-        dispatch(addUser(user));
+        dispatch(register(user));
         form.reset();
     };
 
