@@ -2,3 +2,13 @@
     width: 95vw;
     margin: 0 auto;
 }
+
+h1 {
+    font-weight: 500;
+    color: gray;
+}
+
+h2 {
+    font-weight: 500;
+    color: gray;
+}

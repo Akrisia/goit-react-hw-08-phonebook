@@ -2,6 +2,9 @@
     font-size: 30px;
     text-decoration: none;
     color: #808080;
+}
+
+.link:not(:first-child) {
     margin-left: 20px;
 }
 
