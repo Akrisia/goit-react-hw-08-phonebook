@@ -18,10 +18,10 @@ const ContactList = () => {
         <>
             {items.length > 0 && (
               <ul className={s.list}>
-                    {items.map(({ name, phone, id }) => {
+                    {items.map(({ name, number, id }) => {
                         return (
                             <li key={id} className={s.item}>
-                                {name}: {phone}
+                                {name}: {number}
                                 <button type='button' className={s.button} id={id} onClick={() => onDeleteContact(id)}>Delete</button>
                             </li>
                         )

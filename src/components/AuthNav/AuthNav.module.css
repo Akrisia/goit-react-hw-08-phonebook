@@ -1,0 +1,19 @@
+.link {
+    font-size: 20px;
+    text-decoration: none;
+    color: #808080;
+}
+
+.link:not(:first-child) {
+    margin-left: 20px;
+}
+
+.link:hover,
+.link:focus {
+    color: tomato;
+}
+
+.active {
+    composes: link;
+    color: tomato;
+}
