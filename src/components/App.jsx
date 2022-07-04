@@ -3,12 +3,21 @@ import { lazy, Suspense } from 'react';
 import Loader from './Loader';
 import AppBar from './AppBar';
 import s from './App.module.css';
+import { useDispatch } from 'react-redux';
+import { getCurrentUser } from '../redux/auth/auth-operations';
+import { useEffect } from 'react';
 const HomeView = lazy(() => import('../views/HomeView'));
 const RegisterView = lazy(() => import('../views/RegisterView'));
 const LoginView = lazy(() => import('../views/LoginView/LoginView'));
 const ContactsView = lazy(() => import('../views/ContactsView/ContactsView'));
 
 export function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, [dispatch]);
+
   return (
     <div className={s.container}>
       <AppBar />
