@@ -5,12 +5,13 @@ import PropTypes from 'prop-types';
 
 export default function PublicRoute({
     children,
-    navigateTo
+    restricted = false,
+    navigateTo = '/'
     }) {
     const isLoggedIn = useSelector(getIsLoggedIn);
     return (
         <>
-            {isLoggedIn ? <Navigate to={navigateTo} /> : children}
+            {isLoggedIn && restricted ? <Navigate to={navigateTo} /> : children}
         </>
     );
 };
@@ -18,4 +19,5 @@ export default function PublicRoute({
 PublicRoute.propTypes = {
     children: PropTypes.node.isRequired,
     navigateTo: PropTypes.string,
+    restricted: PropTypes.bool
 };
